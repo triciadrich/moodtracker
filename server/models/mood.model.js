@@ -13,7 +13,7 @@ const MoodTrackerSchema = new mongoose.Schema({
         type: String,
         required: [true, "Log entry is required."]
     }
-});
+}, {timestamps: true});
 
 const MoodTracker = mongoose.model("MoodTracker", MoodTrackerSchema);
 
