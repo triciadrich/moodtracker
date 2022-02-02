@@ -43,8 +43,8 @@ const Register = () => {
     }
 
     return (
-        <div>
-            <form onSubmit={registerUser}>
+        <div className='loginreg'>
+            <form className='loginform' onSubmit={registerUser}>
                 <label>Name: </label>
                 <input name="name" type="text" onChange={handleChange} />
                 <label>Email: </label>

@@ -1,132 +1,127 @@
-
-
-
 .App {
   text-align: center;
   background-image: url("Blue\ Mental\ Health\ Awareness.png");
   height: 1000px;
   background-size: cover;
-  
-
-  
 }
 
-.header{
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+.header {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
-.moodSelect{
+.moodSelect {
   display: flex;
-
 }
-.radio1{
+.radio1 {
   display: flex;
   flex-direction: column;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   margin-right: 20px;
 }
 
-.radio2{
+.radio2 {
   display: flex;
   flex-direction: column;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   margin-right: 20px;
 }
 
-.radio3{
+.radio3 {
   display: flex;
   flex-direction: column;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   margin-right: 20px;
   color: black;
 }
 
-.radio4{
+.radio4 {
   display: flex;
   flex-direction: column;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   margin-right: 20px;
 }
 
-button{
+button {
   margin-top: 10px;
   padding: 10px;
   border-radius: 10px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  background-color:blanchedalmond;
-  color:black;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  background-color: blanchedalmond;
+  color: black;
 }
 
-p{
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+.regbutt {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  background-color:#e9e9ed ;
+  color: black;
+}
+p {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
-textarea{
+textarea {
   padding: 10px;
   width: 55%;
   height: 250px;
 }
 @media screen and (max-width: 600px) {
-  textarea{
+  textarea {
     width: 100%;
   }
 }
-.dates{
+.dates {
   width: 100%;
   display: flex;
   justify-content: center;
-  
 }
-.date{
+.date {
   width: 15%;
-  
 }
 
 [type="radio"]:not(:checked) {
-  position: relative; 
-  opacity: 1; 
+  position: relative;
+  opacity: 1;
   margin: 20px;
-  
 }
 
-.radios{
+.radios {
   display: flex;
   flex-direction: row;
   justify-content: center;
   margin-bottom: 20px;
 }
 
-form{
-
+form {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-table{
+table {
   width: 50%;
 }
 
-.loginform{
+.loginform {
   margin: 50px;
-  width: 50%;
-  
+  width: 30%;
 }
 
-.loginreg{
+.loginreg {
   width: 100%;
   display: flex;
   justify-content: center;
   margin-top: 50px;
 }
 
-.log{
+.log {
   width: 100%;
   display: flex;
   flex-direction: column;
-  
 }
 
-.tablelog{
+.tablelog {
   width: 100%;
   display: flex;
   justify-content: center;

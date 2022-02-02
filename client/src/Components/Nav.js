@@ -6,7 +6,7 @@ const Nav = () => {
     <div>
       <nav>
         <div class="blue-grey nav-wrapper ">
-          <ul class="right">
+          <ul>
             <li>
               <Link to="/home">Tracker</Link>
             </li>

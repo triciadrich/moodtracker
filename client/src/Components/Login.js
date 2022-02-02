@@ -37,8 +37,8 @@ const Login = () => {
                 <input name="email" type="text" onChange={handleChange} />
                 <label>Password: </label>
                 <input name="password" type="password" onChange={handleChange} />    
-                <input type="submit" value="Login" />                   
-                <Link to="/register">Register</Link>       
+                <input className='regbutt' type="submit" value="Login" />                   
+                <button className='regbutt'><Link to="/register">Register</Link></button>       
             </form>
 
         </div>
