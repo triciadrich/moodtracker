@@ -1,6 +1,6 @@
 import React from 'react';
-import MoodTracker from '../Components/MoodTracker';
 import Nav from '../Components/Nav';
+import Register from '../Components/Register';
 
 const edit = (props) => {
     const { scope, id } = props;
@@ -8,7 +8,7 @@ const edit = (props) => {
     return(
         <div>
             <Nav />
-            <MoodTracker scope="edit" id={id} />
+            <Register />
         </div>
     )
 }

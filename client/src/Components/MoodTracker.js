@@ -9,6 +9,7 @@ const MoodTracker = (props) => {
     const [addMood, setAddMood] = useState ("");
     const [log, setLog] = useState ("");
     const [errors, setErrors] = useState("");
+    const [displayMood, setDisplayMood] = useState(false);
 
     useEffect(()=>{
 
@@ -36,8 +37,7 @@ const MoodTracker = (props) => {
 
         const data = {
             date: date,
-            mood: mood,
-            mood: addMood,
+            mood: mood,            
             log: log
         };
 
@@ -51,7 +51,7 @@ const MoodTracker = (props) => {
         
             axios.post(url, data)
                 .then(res=>{
-                    navigate("/home");
+                    navigate("/log");
                 })
                 .catch((err)=>{
                     setErrors(err.response.data.errors);
@@ -64,13 +64,34 @@ const MoodTracker = (props) => {
     
             axios.put(url, data)
             .then((res)=>{
-                navigate("/home");
+                navigate("/log");
             })
             .catch((err)=>{
                 setErrors(err.response.data.errors);                          
             });
         }
     }
+
+    // const toggleDisplayMood = (e) => {        
+    //     setDisplayMood(!displayMood);
+    // }
+
+    const handleMoodChange = (e) => {
+        if ( e.target.value === "addMood" )
+        {
+            setDisplayMood(true);
+            setMood('');
+        }
+        else if ( e.target.name === "addedMood" ) {
+            setMood(e.target.value);
+        }
+        else {
+            setDisplayMood(false);
+            setMood(e.target.value);
+        }
+    }
+
+    
 
         return (
             <form onSubmit={submitData}>
@@ -84,40 +105,34 @@ const MoodTracker = (props) => {
                     {errors.date? <p className="error">{errors.date.message}</p> : null}
                 </div>
                 <div className="moodSelect">
-                    <input type = "radio" onChange={(e) => setMood(e.target.value)} value={mood} /> Joyful
-                    {errors.mood? <p className="error">{errors.mood.message}</p> : null}
-                    
-                    <input type = "radio" onChange={(e) => setMood(e.target.value)} value={mood} /> Happy
-                    {errors.mood? <p className="error">{errors.mood.message}</p> : null}
-
-                    <input type = "radio" onChange={(e) => setMood(e.target.value)} value={mood} /> Satisfied
-                    {errors.mood? <p className="error">{errors.mood.message}</p> : null}
-
-                    <input type = "radio" onChange={(e) => setMood(e.target.value)} value={mood} /> Tranquil
-                    {errors.mood? <p className="error">{errors.mood.message}</p> : null}
-
-                    <input type = "radio" onChange={(e) => setMood(e.target.value)} value={mood} /> Fair
-                    {errors.mood? <p className="error">{errors.mood.message}</p> : null}
-
-                    <input type = "radio" onChange={(e) => setMood(e.target.value)} value={mood} /> Anxious
-                    {errors.mood? <p className="error">{errors.mood.message}</p> : null}
-
-                    <input type = "radio" onChange={(e) => setMood(e.target.value)} value={mood} /> Irritable
-                    {errors.mood? <p className="error">{errors.mood.message}</p> : null}
-
-                    <input type = "radio" onChange={(e) => setMood(e.target.value)} value={mood} /> Sad
-                    {errors.mood? <p className="error">{errors.mood.message}</p> : null}
-
-                    <input type = "radio" onChange={(e) => setMood(e.target.value)} value={mood} /> Depressed
-                    {errors.mood? <p className="error">{errors.mood.message}</p> : null}
-
-                    <input type = "radio" onChange={(e) => setMood(e.target.value)} value={mood} /> Amazed
-                    {errors.mood? <p className="error">{errors.mood.message}</p> : null}
-                    
-                    <input type = "radio" onChange={(e) => setMood(e.target.value)} value={mood} />
-                    {errors.mood? <p className="error">{errors.mood.message}</p> : null}
-                    <label>Add Mood</label>
-                    <input type = "text" onChange={(e) => setAddMood(e.target.value)} value={mood} />
+                    <input type = "radio" onChange={handleMoodChange} name="mood" id="joyful" value="Joyful" /> 
+                    <label htmlFor="joyful">Joyful</label>                    
+                    <input type = "radio" onChange={handleMoodChange} name="mood" id="happy" value="Happy" />
+                    <label htmlFor="joyful">Happy</label>
+                    <input type = "radio" onChange={handleMoodChange} name="mood" id="satisfied" value="Satisfied"/> 
+                    <label htmlFor="satisfied">Satisfied</label>
+                    <input type = "radio" onChange={handleMoodChange} name="mood" id="Tranquil" value="Tranquil" /> 
+                    <label htmlFor="tranquil">Tranquil</label>
+                    <input type = "radio" onChange={handleMoodChange} name="mood" id="fair" value="Fair" /> 
+                    <label htmlFor="fair">Fair</label>
+                    <input type = "radio" onChange={handleMoodChange} name="mood" id="anxious" value="Anxious" /> 
+                    <label htmlFor="anxiouis">Anxious</label>
+                    <input type = "radio" onChange={handleMoodChange} name="mood"id="irritable" value="Irritable" /> 
+                    <label htmlFor="irritable">Irritable</label>
+                    <input type = "radio" onChange={handleMoodChange} name="mood" id="sad" value="Sad" /> 
+                    <label htmlFor="sad">Sad</label>
+                    <input type = "radio" onChange={handleMoodChange} name="mood" id="depressed" value="Depressed" /> 
+                    <label htmlFor="depressed">Depressed</label> 
+                    <input type = "radio" onChange={handleMoodChange} name="mood" id="Amazed" value="Amazed" /> 
+                    <label htmlFor="amazed">Amazed</label>                                    
+                    <input type = "radio" id="addMood" name="mood" value="addMood" onChange={handleMoodChange}/> 
+                    <label htmlFor="addMood">Add Mood</label> 
+                    {displayMood ?                                     
+                    <div>
+                        <label>Mood: </label>
+                        <input type = "text" name="addedMood" onChange={handleMoodChange} />
+                    </div>
+                    : null }
                     {errors.mood? <p className="error">{errors.mood.message}</p> : null}
                 </div>
                 <div className="addLog">
