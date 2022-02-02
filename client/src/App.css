@@ -1,4 +1,103 @@
+
+
+
 .App {
   text-align: center;
+  background-image: url("Blue\ Mental\ Health\ Awareness.png");
+  height: 1000px;
+  background-size: cover;
+  
+
+  
+}
+
+.header{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.moodSelect{
+  display: flex;
+
+}
+.radio1{
+  display: flex;
+  flex-direction: column;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin-right: 20px;
+}
+
+.radio2{
+  display: flex;
+  flex-direction: column;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin-right: 20px;
+}
+
+.radio3{
+  display: flex;
+  flex-direction: column;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin-right: 20px;
+  color: black;
+}
+
+.radio4{
+  display: flex;
+  flex-direction: column;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin-right: 20px;
+}
+
+button{
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background-color:blanchedalmond;
+  color:black;
+}
+
+p{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+textarea{
+  padding: 10px;
+  width: 55%;
+  height: 250px;
+}
+@media screen and (max-width: 600px) {
+  textarea{
+    width: 100%;
+  }
+}
+.dates{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  
+}
+.date{
+  width: 15%;
+  
+}
+
+[type="radio"]:not(:checked) {
+  position: relative; 
+  opacity: 1; 
+  margin: 20px;
+  
+}
+
+.radios{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
