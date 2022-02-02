@@ -4,7 +4,8 @@ import {Link, navigate} from '@reach/router';
 import DeleteButton from './DeleteButton';
 
 const MoodTrackerLog = (props) => {
-    const [moodInfo, setMoodInfo] = useState({});
+    const [moodInfo, setMoodInfo] = useState([]);
+    const [refresh, setRefresh] = useState([false]);
 
     useEffect(()=>{
         const url = `http://localhost:8000/api/mood/`;
@@ -17,7 +18,7 @@ const MoodTrackerLog = (props) => {
                 .catch((err)=>{
                     console.log(err);
                 });  
-        }, []);
+        }, [refresh]);
 
         const editNavigate = (id) => {
             navigate(`/edit/${id}`);
@@ -43,7 +44,7 @@ const MoodTrackerLog = (props) => {
                                 <td className="date">{value.date}</td>
                                 <div className="actionLinks">
                                     <Link className="edit" to={"/edit/" + value._id}>Details</Link>
-                                    <DeleteButton />
+                                    <DeleteButton id={value._id} refresh={refresh} setRefresh={setRefresh}/>
                                 </div>
                             </tr>
                         );
