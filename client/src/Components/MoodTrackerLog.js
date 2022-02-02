@@ -25,11 +25,12 @@ const MoodTrackerLog = (props) => {
         }
 
         return (
-            <div className="homePage">
+            <div className="log">
                 <div className="header">
                     <h1>Mood History</h1> 
                     <p>See how you have been holding up</p>
                 </div>
+                <div className='tablelog'>
                 <table>
                     <tr className="info">
                             <td className ="mood">Mood</td>
@@ -51,6 +52,7 @@ const MoodTrackerLog = (props) => {
                     })
                 }
             </table>
+            </div>
         </div>
         );
     }
