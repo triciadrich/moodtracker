@@ -96,8 +96,38 @@ textarea{
 }
 
 form{
+
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
+table{
+  width: 50%;
+}
+
+.loginform{
+  margin: 50px;
+  width: 50%;
+  
+}
+
+.loginreg{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.log{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.tablelog{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}

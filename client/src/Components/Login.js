@@ -31,8 +31,8 @@ const Login = () => {
     }
 
     return (
-        <div>
-            <form onSubmit={loginUser}>              
+        <div className='loginreg'>
+            <form className='loginform' onSubmit={loginUser}>              
                 <label>Email: </label>
                 <input name="email" type="text" onChange={handleChange} />
                 <label>Password: </label>
