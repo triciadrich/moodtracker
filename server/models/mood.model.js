@@ -13,6 +13,9 @@ const MoodTrackerSchema = new mongoose.Schema({
         type: String,
         required: [true, "Log entry is required."]
     },
+    fileName: {
+        type: String
+    },
     createdBy: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"

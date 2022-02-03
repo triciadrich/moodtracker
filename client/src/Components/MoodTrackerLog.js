@@ -4,13 +4,14 @@ import {Link, navigate} from '@reach/router';
 import DeleteButton from './DeleteButton';
 
 const MoodTrackerLog = (props) => {
+    const { loggedIn, setLoggedIn } = props;
     const [moodInfo, setMoodInfo] = useState([]);
-    const [refresh, setRefresh] = useState([false]);
+    const [refresh, setRefresh] = useState([false]);    
 
     useEffect(()=>{
         const url = `http://localhost:8000/api/mood/`;
     
-            axios.get(url)
+            axios.get(url, {withCredentials: true})
                 .then(res=>{
                     setMoodInfo(res.data);
                     console.log(res.data);
@@ -47,6 +48,7 @@ const MoodTrackerLog = (props) => {
                                     <Link className="edit" to={"/edit/" + value._id}>Details</Link>
                                     <DeleteButton id={value._id} refresh={refresh} setRefresh={setRefresh}/>
                                 </div>
+                                <td><img src={`http://localhost:8000/api/files/${value.fileName}`}></img></td>
                             </tr>
                         );
                     })

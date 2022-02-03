@@ -1,12 +1,14 @@
 import MoodTrackerLog from "../Components/MoodTrackerLog";
 import Nav from "../Components/Nav";
 
-const History = () => {
+const History = (props) => {
+
+    const { loggedIn, setLoggedIn } = props;
 
     return (
         <div>
-            <Nav />
-            <MoodTrackerLog />
+            <Nav loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+            <MoodTrackerLog loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
         </div>
     )
 }

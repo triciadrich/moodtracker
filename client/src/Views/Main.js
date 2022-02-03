@@ -1,12 +1,14 @@
 import MoodTracker from "../Components/MoodTracker";
 import Nav from "../Components/Nav";
 
-const Main = () => {
+const Main = (props) => {
+
+    const { loggedIn, setLoggedIn } = props;
 
     return (
         <div>
-            <Nav />
-            <MoodTracker scope={"add"} />
+            <Nav loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+            <MoodTracker scope={"add"} loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
         </div>
     )
 }

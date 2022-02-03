@@ -5,10 +5,13 @@ import { Link, navigate } from '@reach/router';
 
 
 const MoodTracker = (props) => {
-    const { scope, id } = props;
+    const { scope, id, loggedIn, setLoggedIn } = props;
     const [date, setDate] = useState("");
     const [mood, setMood] = useState("");
-    const [addMood, setAddMood] = useState ("");
+    const [picture, setPicture] = useState({
+        fileName: '',
+        file: []
+    });
     const [log, setLog] = useState ("");
     const [errors, setErrors] = useState("");
     const [displayMood, setDisplayMood] = useState(false);
@@ -19,11 +22,10 @@ const MoodTracker = (props) => {
 
             const url = `http://localhost:8000/api/mood/${id}`
             
-            axios.get(url)
+            axios.get(url, {withCredentials: true})
             .then((res)=>{
                 setDate(res.data.date);  
-                setMood(res.data.mood);
-                setAddMood(res.data.mood);
+                setMood(res.data.mood);                
                 setLog(res.data.log);
                 console.log(res.data);           
             })
@@ -40,7 +42,8 @@ const MoodTracker = (props) => {
         const data = {
             date: date,
             mood: mood,            
-            log: log
+            log: log,
+            fileName: picture.fileName
         };
 
         const editNavigate = (id) => {
@@ -51,9 +54,9 @@ const MoodTracker = (props) => {
     
             const url = `http://localhost:8000/api/mood/`;
         
-            axios.post(url, data)
+            axios.post(url, data, {withCredentials: true})
                 .then(res=>{
-                    navigate("/log");
+                    handleUpload();                    
                 })
                 .catch((err)=>{
                     setErrors(err.response.data.errors);
@@ -64,7 +67,7 @@ const MoodTracker = (props) => {
         else {
             const url = `http://localhost:8000/api/mood/${id}`;
     
-            axios.put(url, data)
+            axios.put(url, data, {withCredentials: true})
             .then((res)=>{
                 navigate("/log");
             })
@@ -72,6 +75,28 @@ const MoodTracker = (props) => {
                 setErrors(err.response.data.errors);                          
             });
         }
+    }
+
+    const handleUpload = () => {
+        const formData = new FormData();
+        const config = {
+            headers: {
+                'content-type': 'multipart/form-data'
+            }
+        };
+
+        let fileName = picture.fileName;
+        formData.append(fileName, picture.file[0])        
+
+        const uploadUrl = 'http://localhost:8000/api/upload/';
+
+        axios.post(uploadUrl, formData, config)
+        .then((res)=>{
+            navigate("/log");
+        })
+        .catch((err)=>{
+            console.log(err);
+        });
     }
 
     // const toggleDisplayMood = (e) => {        
@@ -93,7 +118,13 @@ const MoodTracker = (props) => {
         }
     }
 
-    
+    const handlePicture = (e) => {     
+
+        setPicture({
+            fileName: Date.now() + e.target.value.replace(/^.*[\\\/]/, ''),
+            file: e.target.files
+        })
+    }    
 
         return (
             
@@ -108,8 +139,7 @@ const MoodTracker = (props) => {
                     <input type = "date" onChange={(e) => setDate(e.target.value)} value={date} />
                     {errors.date? <p className="error">{errors.date.message}</p> : null}
                 </div>
-                </div>
-                
+                </div>                
                    <div className='radios'>
                     <div className='radio1'>
                     <label>
@@ -166,6 +196,10 @@ const MoodTracker = (props) => {
                     <h5>Daily Entry</h5>
                     <textarea maxLength="500" onChange={(e) => setLog(e.target.value)} value={log}>
                     </textarea>
+                </div>
+                <div>
+                    <label htmlFor="moodPicture">Upload Picture:</label>
+                    <input type="file" name="moodPicture" onChange={handlePicture} />
                 </div>
                 <div>
                     <button type="submit" value="Add Entry">{ scope !== 'edit' ? "Add Entry": "Edit Entry"}</button>
