@@ -3,12 +3,12 @@ import Nav from '../Components/Nav';
 import Login from '../Components/Login.js';
 
 const edit = (props) => {
-    const { scope, id } = props;
+    const { scope, id, loggedIn, setLoggedIn } = props;
 
     return(
         <div>
-            <Nav />
-            <Login />
+            <Nav loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+            <Login loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
         </div>
     )
 }

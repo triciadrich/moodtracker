@@ -27,12 +27,12 @@ const getAllMoods = (req, res) => {
     .catch(err => res.status(400).json(err));
 };
 
-const getAllMoodsByUser = (req, res) => {
-    const { params } = req;
-    MoodTracker.find({ createdBy: params.userId })
-    .then((allUserMoods) => res.json(allUserMoods))
-    .catch(err => res.status(400).json(err));
-}
+// const getAllMoodsByUser = (req, res) => {
+//     const { params } = req;
+//     MoodTracker.find({ createdBy: params.userId })
+//     .then((allUserMoods) => res.json(allUserMoods))
+//     .catch(err => res.status(400).json(err));
+// }
 
 //This pulls a single mood from the database.
 const getOneMood = (req, res) => {
@@ -62,7 +62,7 @@ module.exports = {
     healthCheck,
     createMood,
     getAllMoods,
-    getAllMoodsByUser,
+    //getAllMoodsByUser,
     getOneMood,
     updateMood,
     deleteMood

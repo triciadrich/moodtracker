@@ -2,7 +2,9 @@ import react, { useState } from 'react';
 import axios from 'axios';
 import { Link, navigate } from '@reach/router';
 
-const Login = () => {
+const Login = (props) => {
+
+    const { loggedIn, setLoggedIn } = props;   
 
     const [login, setLogin] = useState({        
         email: '',
@@ -22,6 +24,7 @@ const Login = () => {
         axios.post(url, login, {withCredentials: true})
         .then((res)=>{
             localStorage.setItem('name', res.data.name);
+            setLoggedIn(true);
             navigate('/home')
         })
         .catch((err)=>{

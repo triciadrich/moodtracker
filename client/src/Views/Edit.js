@@ -3,12 +3,12 @@ import MoodTracker from '../Components/MoodTracker';
 import Nav from '../Components/Nav';
 
 const edit = (props) => {
-    const { scope, id } = props;
+    const { scope, id, loggedIn, setLoggedIn } = props;
 
     return(
         <div>
-            <Nav />
-            <MoodTracker scope="edit" id={id} />
+            <Nav loggedIn={loggedIn} setLoggedIn={setLoggedIn}  />
+            <MoodTracker scope="edit" id={id} loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
         </div>
     )
 }

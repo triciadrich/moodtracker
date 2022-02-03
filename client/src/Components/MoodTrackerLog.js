@@ -4,13 +4,14 @@ import {Link, navigate} from '@reach/router';
 import DeleteButton from './DeleteButton';
 
 const MoodTrackerLog = (props) => {
+    const { loggedIn, setLoggedIn } = props;
     const [moodInfo, setMoodInfo] = useState([]);
     const [refresh, setRefresh] = useState([false]);
 
     useEffect(()=>{
         const url = `http://localhost:8000/api/mood/`;
     
-            axios.get(url)
+            axios.get(url, {withCredentials: true})
                 .then(res=>{
                     setMoodInfo(res.data);
                     console.log(res.data);

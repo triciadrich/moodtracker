@@ -8,7 +8,7 @@ const DeleteButton = (props) => {
     const deleteMood = (e) => {  
         const url = `http://localhost:8000/api/mood/${id}`;
         
-        axios.delete(url)
+        axios.delete(url, {withCredentials: true})
         .then((res) => {
             setRefresh(!refresh);
         })

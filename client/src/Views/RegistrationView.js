@@ -3,11 +3,11 @@ import Nav from '../Components/Nav';
 import Register from '../Components/Register';
 
 const edit = (props) => {
-    const { scope, id } = props;
+    const { scope, id, loggedIn, setLoggedIn } = props;
 
     return(
         <div>
-            <Nav />
+            <Nav loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
             <Register />
         </div>
     )

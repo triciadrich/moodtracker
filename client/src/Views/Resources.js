@@ -1,11 +1,13 @@
 import ResourceList from "../Components/ResourceList";
 import Nav from "../Components/Nav";
 
-const Resources = () => {
+const Resources = (props) => {
+
+    const { loggedIn, setLoggedIn } = props;
 
     return (
         <div>
-            <Nav />
+            <Nav loggedIn={loggedIn} setLoggedIn={setLoggedIn}  />
             <ResourceList />
         </div>
     )
