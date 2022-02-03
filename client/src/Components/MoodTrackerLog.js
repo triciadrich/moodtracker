@@ -26,36 +26,45 @@ const MoodTrackerLog = (props) => {
         }
 
         return (
-            <div className="log">
+            <div class="container">
                 <div className="header">
                     <h1>Mood History</h1> 
                     <p>See how you have been holding up</p>
                 </div>
-                <div className='tablelog'>
+                <div class="container col">
+            
                 <table>
+                    <thead>
                     <tr className="info">
                             <td className ="mood">Mood</td>
                             <td className ="datee">Date</td>
                             <td className ="actions">Actions</td>
+                            <td className='images'>Image</td>
                     </tr>
+                    </thead>
+                    <tbody>
                 {
                     moodInfo.map((value, index)=>{
                         return (                        
                             <tr>
                                 <td className="mood">{value.mood}</td>
                                 <td className="date">{value.date}</td>
-                                <div className="actionLinks">
-                                    <Link className="edit" to={"/edit/" + value._id}>Details</Link>
+                                <td><img className='logimage' src={`http://localhost:8000/api/files/${value.fileName}`}></img></td>
+                                <td>
+                                   <button> <Link className="edit" to={"/edit/" + value._id}>Details</Link></button>
                                     <DeleteButton id={value._id} refresh={refresh} setRefresh={setRefresh}/>
-                                </div>
-                                <td><img src={`http://localhost:8000/api/files/${value.fileName}`}></img></td>
+                                </td>
+                                
                             </tr>
                         );
                     })
                 }
+                </tbody>
             </table>
+            
             </div>
         </div>
+        
         );
     }
             

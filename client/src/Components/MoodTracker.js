@@ -131,11 +131,11 @@ const MoodTracker = (props) => {
             <form onSubmit={submitData}>
                 <div class="container">
                     <h1>Mood Tracker</h1>
-                    <h6>How are you feeling today?</h6>
+                    <h5>How are you feeling today?</h5>
                 </div>
                 <div class="dates">
                 <div className="date">
-                    <label>Date</label>
+                    <label><span className='black-text'>Date</span></label>
                     <input type = "date" onChange={(e) => setDate(e.target.value)} value={date} />
                     {errors.date? <p className="error">{errors.date.message}</p> : null}
                 </div>
@@ -144,43 +144,43 @@ const MoodTracker = (props) => {
                     <div className='radio1'>
                     <label>
                     <input type = "radio" onChange={handleMoodChange} name="mood" id="joyful" value="Joyful" /> 
-                    <label For="joyful">Joyful</label>  </label>  
+                    <label For="joyful"><span className='black-text'>Joyful</span></label>  </label>  
                     <label>               
                     <input type = "radio" onChange={handleMoodChange} name="mood" id="happy" value="Happy" />
-                    <label htmlFor="joyful">Happy</label></label>
+                    <label htmlFor="joyful"><span className='black-text'>Happy</span></label></label>
                     <label>
                     <input type = "radio" onChange={handleMoodChange} name="mood" id="satisfied" value="Satisfied"/> 
-                    <label htmlFor="satisfied">Satisfied</label></label>
+                    <label htmlFor="satisfied"><span className='black-text'>Satisfied</span></label></label>
                     </div>
                     <div className='radio2'>
                     <label>
                     <input type = "radio" onChange={handleMoodChange} name="mood" id="Tranquil" value="Tranquil" /> 
-                    <label htmlFor="tranquil">Tranquil</label></label>
+                    <label htmlFor="tranquil"><span className='black-text'>Tranquil</span></label></label>
                     <label>
                     <input type = "radio" onChange={handleMoodChange} name="mood" id="fair" value="Fair" /> 
-                    <label htmlFor="fair">Fair</label></label>
+                    <label htmlFor="fair"><span className='black-text'>Fair</span></label></label>
                     <label>
                     <input type = "radio" onChange={handleMoodChange} name="mood" id="anxious" value="Anxious" /> 
-                    <label htmlFor="anxiouis">Anxious</label></label>
+                    <label htmlFor="anxiouis"><span className='black-text'>Anxious</span></label></label>
                     </div>
                     <div className='radio3'>
                     <label>
                     <input type = "radio" onChange={handleMoodChange} name="mood"id="irritable" value="Irritable" /> 
-                    <label htmlFor="irritable">Irritable</label></label>
+                    <label htmlFor="irritable"><span className='black-text'>Irritable</span></label></label>
                     <label>
                     <input type = "radio" onChange={handleMoodChange} name="mood" id="sad" value="Sad" /> 
-                    <label htmlFor="sad">Sad</label></label>
+                    <label htmlFor="sad"><span className='black-text'>Sad</span></label></label>
                     <label>
                     <input type = "radio" onChange={handleMoodChange} name="mood" id="depressed" value="Depressed" /> 
-                    <label htmlFor="depressed">Depressed</label></label> 
+                    <label htmlFor="depressed"><span className='black-text'>Depressed</span></label></label> 
                    </div>
                    <div className='radio4'>
                        <label>
                     <input type = "radio" onChange={handleMoodChange} name="mood" id="Amazed" value="Amazed" /> 
-                    <label htmlFor="amazed">Amazed</label> </label>
+                    <label htmlFor="amazed"><span className='black-text'>Amazed</span></label> </label>
                     <label>                                   
                     <input type = "radio" id="addMood" name="mood" value="addMood" onChange={handleMoodChange}/> 
-                    <label htmlFor="addMood">Add Mood</label> </label>
+                    <label htmlFor="addMood"> <span className='black-text'>Add Mood</span></label> </label>
                     {displayMood ?                                     
                     <div>
                         <label>Mood: </label>
@@ -197,8 +197,8 @@ const MoodTracker = (props) => {
                     <textarea maxLength="500" onChange={(e) => setLog(e.target.value)} value={log}>
                     </textarea>
                 </div>
-                <div>
-                    <label htmlFor="moodPicture">Upload Picture:</label>
+                <div className="fileupload">
+                    <label htmlFor="moodPicture"><h4 className="black-text">Upload Picture:</h4></label>
                     <input type="file" name="moodPicture" onChange={handlePicture} />
                 </div>
                 <div>

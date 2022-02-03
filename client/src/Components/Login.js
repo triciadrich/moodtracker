@@ -36,12 +36,12 @@ const Login = (props) => {
     return (
         <div className='loginreg'>
             <form className='loginform' onSubmit={loginUser}>              
-                <label>Email: </label>
+                <label><span className='black-text'>Email:</span> </label>
                 <input name="email" type="text" onChange={handleChange} />
-                <label>Password: </label>
+                <label><span className='black-text'>Password: </span></label>
                 <input name="password" type="password" onChange={handleChange} />    
                 <input className='regbutt' type="submit" value="Login" />                   
-                <button className='regbutt'><Link to="/register">Register</Link></button>       
+                <button className='regbutt'><Link to="/register"><span className='black-text'>Register</span></Link></button>       
             </form>
 
         </div>

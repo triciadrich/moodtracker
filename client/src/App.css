@@ -3,6 +3,7 @@
   background-image: url("Blue\ Mental\ Health\ Awareness.png");
   height: 1000px;
   background-size: cover;
+
 }
 
 .header {
@@ -16,6 +17,7 @@
   flex-direction: column;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   margin-right: 20px;
+  
 }
 
 .radio2 {
@@ -65,6 +67,7 @@ textarea {
   padding: 10px;
   width: 55%;
   height: 250px;
+  background-color: white;
 }
 @media screen and (max-width: 600px) {
   textarea {
@@ -78,6 +81,8 @@ textarea {
 }
 .date {
   width: 15%;
+  margin-top: 20px;
+  
 }
 
 [type="radio"]:not(:checked) {
@@ -99,9 +104,7 @@ form {
   justify-content: center;
 }
 
-table {
-  width: 50%;
-}
+
 
 .loginform {
   margin: 50px;
@@ -121,8 +124,28 @@ table {
   flex-direction: column;
 }
 
-.tablelog {
-  width: 100%;
-  display: flex;
-  justify-content: center;
+
+.logimage{
+  width: 25%;
+}
+
+.fileupload{
+  margin: 20px;
+  color:black;
+}
+td{
+  padding: 20px;
+  text-align: center;
+}
+
+.info{
+  font-weight: bolder;
+}
+
+.black-text{
+  font-size: medium;
+}
+
+table{
+  background-color: rgba(255,255,255,0.15);
 }
