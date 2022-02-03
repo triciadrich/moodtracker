@@ -12,7 +12,7 @@ require("./config/mongoose.config");
 app.use(cookieParser());
 
 const storageEngine = multer.diskStorage ({
-    destination:'/uploads',
+    destination:'./uploads',
     filename: function (req, file, cb) {
         console.log(file);
         cb(null, file.fieldname);
@@ -39,10 +39,9 @@ app.post('/api/upload', upload.any(), function (req, res, next) {
     res.json({ message: "File uploaded successfully"});
 });
 
-const moodRoutes = require("./routes/mood.routes");
-const userRoutes = require("./routes/user.routes")
+require("./routes/file.routes")(app);
+require("./routes/mood.routes")(app);
+require("./routes/user.routes")(app);
 
-moodRoutes(app);
-userRoutes(app);
 
 app.listen(8000, () => console.log("The server is all fired up on port 8000"));

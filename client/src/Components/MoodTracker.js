@@ -121,7 +121,7 @@ const MoodTracker = (props) => {
     const handlePicture = (e) => {     
 
         setPicture({
-            fileName: e.target.value.replace(/^.*[\\\/]/, ''),
+            fileName: Date.now() + e.target.value.replace(/^.*[\\\/]/, ''),
             file: e.target.files
         })
     }    

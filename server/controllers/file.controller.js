@@ -1,5 +1,5 @@
 const fs = require('fs');
-const baseUrl = process.env.SERVER_URL + '/files/';
+const baseUrl = 'http://localhost:8000/api/files/';
 
 const download = (req, res) => {
     const fileName = req.params.name;
