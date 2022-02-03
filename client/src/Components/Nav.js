@@ -35,7 +35,7 @@ const Nav = (props) => {
             </li>
             {loggedIn ?
               <li>
-                <input type="button" value="logout" onClick={logoutUser} />
+                <input type="button" value="logout" onClick={logoutUser}  />
               </li> : null
             }       
           </ul>

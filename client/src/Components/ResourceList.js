@@ -4,9 +4,10 @@ const ResourceList = () => {
 
     return (
         <div>
-            <p>If you or someone you know is struggling with mental health, please seek immediate help from a licensed professional. 
-                For additional information on various mental health related topics, please visit the following sites:</p>
-            <ul>
+            <p className='black-text'><blockquote>If you or someone you know is struggling with mental health, please seek immediate help from a licensed professional. 
+                For additional information on various mental health related topics, please visit the following sites:</blockquote></p>
+                
+            <ul className="card-panel">
                 <li>
                     <a href='https://suicidepreventionlifeline.org/'>National Suicide Prevention Lifeline</a>
                 </li>

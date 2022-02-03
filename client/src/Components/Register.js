@@ -45,13 +45,13 @@ const Register = () => {
     return (
         <div className='loginreg'>
             <form className='loginform' onSubmit={registerUser}>
-                <label>Name: </label>
+                <label><span className='black-text'>Name:</span> </label>
                 <input name="name" type="text" onChange={handleChange} />
-                <label>Email: </label>
+                <label><span className='black-text'>Email:</span> </label>
                 <input name="email" type="text" onChange={handleChange} />
-                <label>Password: </label>
+                <label><span className='black-text'>Password:</span> </label>
                 <input name="password" type="password" onChange={handleChange} />
-                <label>Confirm Password: </label>
+                <label><span className='black-text'>Confirm Password:</span> </label>
                 <input name="confirmPassword" type="password" onChange={handleChange} />
                 <input type="submit" value="Register" />
             </form>
