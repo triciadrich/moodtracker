@@ -38,8 +38,9 @@ const MoodTrackerLog = (props) => {
                     <tr className="info">
                             <td className ="mood">Mood</td>
                             <td className ="datee">Date</td>
-                            <td className ="actions">Actions</td>
                             <td className='images'>Image</td>
+                            <td className ="actions">Actions</td>
+                            
                     </tr>
                     </thead>
                     <tbody>
